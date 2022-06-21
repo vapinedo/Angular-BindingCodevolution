@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <h2>Welcome {{name}}</h2>
     <input id="test" type="text" value="Valp">
-    <input bind-disabled="isDisabled" type="text" value="Valp">
+    <!-- <input bind-disabled="isDisabled" type="text" value="Valp"> -->
+    <input [disabled]="isDisabled" type="text" value="Valp">
   `,
   styles: []
 })
