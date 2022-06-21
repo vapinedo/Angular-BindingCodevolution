@@ -1,45 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   template: `
-    <h2 class="text-success">Welcome {{name}}</h2>
-    <h2 [class]="successClass">Tony Kroos</h2>
-    <h2 class="text-special" [class]="successClass">Karin Benzema</h2>
-    <h2 [class.text-danger]="hasError">Casemiro</h2>
-    <h2 [ngClass]="messageClasses">Vinicius Jr</h2>
+    <h2 [style.color]="hasError ? 'red': 'blue'">Welcome {{name}}</h2>
+    <h2 [style.color]="highLightColor">Santiabo Bernabeu</h2>
+    <h2 [ngStyle]="titleStyles">Luis Figo</h2>
   `,
-  styles: [`
-    .text-success {
-      color: green;
-    }
-    .text-danger {
-      color: red;
-    }
-    .text-special {
-      font-style: italic;
-    }
-  `]
+  styles: []
 })
-export class TestComponent implements OnInit {
+export class TestComponent {
 
-  hasError: boolean = true;
-  isSpecial: boolean = true;
-  messageClasses = {
-    "text-success": !this.hasError,
-    "text-danger": this.hasError,
-    "text-special": this.isSpecial
+  hasError: boolean = false;
+  name: string = "Real Madrid";
+  highLightColor: string = "orange";
+  titleStyles = {
+    color: "blue",
+    fontStyle: "italic"
   };
-  name: string = "To Real Madrid";
-  successClass: string = "text-success";
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  greetUser() {
-    return "Hello " + this.name;
-  }
 
 }
